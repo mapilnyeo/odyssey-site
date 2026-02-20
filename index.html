@@ -214,6 +214,54 @@
               </div>
             </div>
           </div>
+
+          <!-- Divider -->
+          <div style="margin: 12px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="flex: 1; height: 1px; background: var(--border);"></div>
+            <span
+              style="font-size: 10px; color: var(--text-faint); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">또는</span>
+            <div style="flex: 1; height: 1px; background: var(--border);"></div>
+          </div>
+
+          <!-- Option 2: Automated -->
+          <div class="quickstart-banner"
+            style="padding:24px; border-left: 4px solid var(--accent-light); background: var(--bg-surface); align-items: flex-start; flex-direction: column; width: 100%;">
+            <div style="width:100%;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 16px;">✨</span>
+                <h3 style="margin:0; font-size: 15px; font-weight: 700;">Gemini에게 맡기기</h3>
+              </div>
+
+              <p style="font-size:13px; color:var(--text-muted); margin-bottom: 20px; line-height:1.7;">
+                이 방법은 Gemini CLI의 핵심 원칙인 <strong>"원하는 것을 설명하면, Gemini가 직접 구현을 처리한다"</strong>는 것을 가장 잘 보여줍니다.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+                <div style="font-size: 13px; line-height: 1.6;">
+                  <p style="margin-bottom: 8px;">터미널을 열고 <code>gemini</code>를 입력하여 Gemini CLI를 실행합니다.</p>
+
+                  <p style="margin-bottom: 8px;">Gemini에게 다음과 같이 요청하세요:</p>
+                  <div
+                    style="background:var(--bg-base); border: 1px dashed var(--accent-light); padding: 12px; border-radius: 6px; font-size: 12px; color: var(--text-primary); line-height: 1.6; word-break: break-all;">
+                    "코스 자료(<a
+                      href="https://github.com/carlvellotti/claude-code-everyone-course/releases/download/v2.0.1/complete-course.zip"
+                      target="_blank"
+                      style="color:var(--accent-light); text-decoration: underline;">https://github.com/carlvellotti/claude-code-everyone-course/releases/download/v2.0.1/complete-course.zip</a>)를를)
+                    다운로드하고, 내 문서 폴더의 <code>gc4e-course</code>라는 폴더에 압축을 풀어줘."
+                  </div>
+                </div>
+
+                <div style="font-size: 13px; line-height: 1.6;">
+                  <p style="margin-bottom: 8px;">종료 및 이동: <code>exit</code>를 입력해 Gemini를 종료한 다음, 아래 명령어를 통해 새로 만든 폴더로
+                    이동하여 다시 Gemini를 실행합니다.</p>
+                  <div class="terminal-cmd"
+                    style="padding: 10px 14px; border-radius: 6px; background: var(--bg-base); font-size: 12px;">
+                    <span class="prompt">$</span><span class="cmd-text">cd ~/Documents/gc4e-course && gemini</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
