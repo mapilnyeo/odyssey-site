@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4 Commands & Navigation | Odyssey AI — GC4E</title>
+    <meta name="description" content="슬래시 명령어, 커스텀 TOML 명령, 승인 모드, Policy Engine, Chain-of-Thought 완전 가이드." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main">
+            <article class="lesson-main">
+
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a><span class="sep">›</span>
+                    <a href="../index.html#module-1">Module 1</a><span class="sep">›</span>
+                    <span class="current">1.4 Commands & Navigation</span>
+                </nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number">Lesson 1.4</span>
+                        <span class="lesson-tag">⏱ 40분</span>
+                        <span class="lesson-tag">⚡ 핵심 기능</span>
+                    </div>
+                    <h1 class="lesson-title">Commands &amp; Navigation</h1>
+                    <p class="lesson-desc">
+                        Gemini CLI를 슈퍼파워처럼 쓰게 해주는 도구들입니다. 슬래시 명령어, 커스텀 TOML 명령,
+                        키보드 단축키, 승인 모드, Chain-of-Thought 프롬프팅, Policy Engine까지 한 번에 마스터합니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-1-4</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>필수 슬래시 명령어</h2>
+                    <table class="cmd-table">
+                        <thead>
+                            <tr>
+                                <th>명령어</th>
+                                <th>하는 일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>/help</td>
+                                <td>모든 명령어 목록 보기</td>
+                            </tr>
+                            <tr>
+                                <td>/stats</td>
+                                <td>현재 모델, 토큰 사용량 확인</td>
+                            </tr>
+                            <tr>
+                                <td>/memory show</td>
+                                <td>로드된 메모리 컨텍스트 보기</td>
+                            </tr>
+                            <tr>
+                                <td>/memory add</td>
+                                <td>새 메모리를 GEMINI.md에 추가</td>
+                            </tr>
+                            <tr>
+                                <td>/memory refresh</td>
+                                <td>GEMINI.md 수정 후 다시 로드</td>
+                            </tr>
+                            <tr>
+                                <td>/model</td>
+                                <td>사용 모델 전환 (pro, flash 등)</td>
+                            </tr>
+                            <tr>
+                                <td>/compress</td>
+                                <td>컨텍스트가 길어질 때 압축</td>
+                            </tr>
+                            <tr>
+                                <td>/clear</td>
+                                <td>대화 초기화 후 새로 시작</td>
+                            </tr>
+                            <tr>
+                                <td>/resume</td>
+                                <td>이전 세션 복귀</td>
+                            </tr>
+                            <tr>
+                                <td>/rewind</td>
+                                <td>대화를 특정 지점으로 되돌리기</td>
+                            </tr>
+                            <tr>
+                                <td>/plan</td>
+                                <td>변경 없이 계획만 보기 모드로 전환</td>
+                            </tr>
+                            <tr>
+                                <td>/commands</td>
+                                <td>커스텀 명령어 포함 전체 목록</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>커스텀 명령어 (TOML)</h2>
+                    <p class="content-p"><code>.gemini/commands/</code> 폴더에 <code>.toml</code> 파일을 만들면 나만의 슬래시 명령어가
+                        생깁니다.</p>
+                    <div class="code-block">
+                        <span class="cb-comment"># .gemini/commands/my-standup.toml</span><br />
+                        <span class="cb-key">description</span> = <span class="cb-string">"오늘의 스탠드업 보고서
+                            생성"</span><br /><br />
+                        <span class="cb-key">prompt</span> = <span class="cb-string">"""<br />
+                            customer-data 폴더를 읽고 오늘 주목해야 할 사항을<br />
+                            스탠드업 형식(어제/오늘/블로커)으로 정리해줘.<br />
+                            """</span>
+                    </div>
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <span>파일 추가 후 <code>/commands reload</code>를 실행하면 재시작 없이 바로 사용 가능합니다.</span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>키보드 단축키</h2>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <div class="concept-icon">⎋</div>
+                            <div class="concept-title">Escape — 중단</div>
+                            <div class="concept-desc">Gemini가 작업 중일 때 누르면 즉시 멈춥니다. "잠깐, 잠깐만요" 버튼.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">⎋⎋</div>
+                            <div class="concept-title">Escape×2 — 되감기</div>
+                            <div class="concept-desc">대화 기록을 탐색하며 이전 지점으로 돌아갑니다. 파일 변경까지 함께 취소됩니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">⇧⇥</div>
+                            <div class="concept-title">Shift+Tab — 모드 전환</div>
+                            <div class="concept-desc">Default → Auto-edit → Plan 모드를 순환합니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">↵</div>
+                            <div class="concept-title">\ + Enter — 줄 바꿈</div>
+                            <div class="concept-desc">제출하지 않고 긴 프롬프트에서 새 줄로 이동합니다. Shift+Enter도 동일.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>승인 모드 (Approval Modes)</h2>
+                    <p class="content-p"><strong style="color:var(--text-primary);">Shift+Tab</strong>으로 3가지 모드를 순환합니다:
+                    </p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">Default Mode</div>
+                            <div class="step-title">모든 액션에 승인 요청</div>
+                            <div class="step-desc">가장 안전합니다. 파일 쓰기든 명령 실행이든 항상 먼저 물어봅니다. 처음 시작할 때, 또는 확신이 없을 때 사용하세요.
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">Auto-edit Mode</div>
+                            <div class="step-title">파일 수정은 자동, 명령 실행은 물어봄</div>
+                            <div class="step-desc">반복적인 파일 편집 작업에서 속도를 높이고 싶을 때. Gemini를 어느 정도 신뢰할 때 사용합니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">Plan Mode</div>
+                            <div class="step-title">읽기와 계획만, 절대 변경 없음</div>
+                            <div class="step-desc">낯선 코드베이스를 탐색하거나 계획만 검토할 때. 실수로 뭔가가 변경되는 걱정 없이 마음껏 탐색합니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>Policy Engine — AI 행동 규칙 설정</h2>
+                    <p class="content-p">
+                        <code>~/.gemini/policies/</code> 폴더에 <code>.toml</code> 파일을 만들어 Gemini CLI가 자동으로 할 수 있는 것과 항상
+                        물어봐야 하는 것을 세밀하게 제어합니다.
+                    </p>
+                    <div class="code-block">
+                        <span class="cb-comment"># ~/.gemini/policies/my-rules.toml</span><br /><br />
+                        <span class="cb-comment"># ✅ git status는 항상 자동 허용</span><br />
+                        [[rule]]<br />
+                        <span class="cb-key">toolName</span> = <span class="cb-string">"run_shell_command"</span><br />
+                        <span class="cb-key">commandPrefix</span> = <span class="cb-string">"git status"</span><br />
+                        <span class="cb-key">decision</span> = <span class="cb-string">"allow"</span><br />
+                        <span class="cb-key">priority</span> = 100<br /><br />
+                        <span class="cb-comment"># ❓ git push는 반드시 물어보기</span><br />
+                        [[rule]]<br />
+                        <span class="cb-key">toolName</span> = <span class="cb-string">"run_shell_command"</span><br />
+                        <span class="cb-key">commandPrefix</span> = <span class="cb-string">"git push"</span><br />
+                        <span class="cb-key">decision</span> = <span class="cb-string">"ask_user"</span><br />
+                        <span class="cb-key">priority</span> = 200
+                    </div>
+                    <div class="callout callout-info">
+                        <span class="callout-icon">🛡️</span>
+                        <span><strong style="color:var(--text-primary);">3가지 decision 값:</strong><br />
+                            <code>allow</code> — 자동 실행 / <code>deny</code> — 완전 차단 / <code>ask_user</code> — 항상
+                            물어보기<br />
+                            공식 문서: <a href="https://geminicli.com/docs/reference/policy-engine" target="_blank"
+                                style="color:var(--accent-light);">geminicli.com/docs/reference/policy-engine</a></span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>Chain-of-Thought 프롬프팅</h2>
+                    <p class="content-p">Gemini CLI에는 "think" 같은 특수 키워드가 없습니다. 대신 직접 요청하거나 GEMINI.md에 내장합니다:</p>
+                    <div class="code-block">
+                        <span class="cb-comment"># 방법 1: 직접 요청</span><br />
+                        <span class="cb-prompt">gemini&gt;</span> <span class="cb-string">"단계별로 생각해보고 답해줘: 로열티 프로그램 참여율이
+                            낮은 근본 원인이 뭐야?"</span><br /><br />
+                        <span class="cb-comment"># 방법 2: Plan 모드에서 분석</span><br />
+                        <span class="cb-prompt">gemini&gt;</span> <span class="cb-string">/plan "고객 데이터 분석 계획
+                            잡아줘"</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <nav class="lesson-nav">
+                <a class="nav-card" href="1-3-working-with-files.html">
+                    <div class="nav-card-dir">← 이전</div>
+                    <div class="nav-card-title">1.3 Working with Files</div>
+                </a>
+                <a class="nav-card next" href="1-5-agents.html">
+                    <div class="nav-card-dir">다음 →</div>
+                    <div class="nav-card-title">1.5 Agents</div>
+                </a>
+            </nav>
+        </main>
+    </div>
+    <script src="../nav.js"></script>
+</body>
+
+</html>

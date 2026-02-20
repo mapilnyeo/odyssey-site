@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 Introduction | Odyssey AI — GC4E</title>
+    <meta name="description"
+        content="Gemini CLI for Everyone 코스 소개 및 Basecamp Coffee 시나리오 설정. 학습-by-doing 방식으로 Gemini CLI의 세계를 시작합니다." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="main">
+            <article class="lesson-main">
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a>
+                    <span class="sep">›</span>
+                    <a href="../index.html#module-1">Module 1 · Foundations</a>
+                    <span class="sep">›</span>
+                    <span class="current">1.1 Introduction</span>
+                </nav>
+
+                <!-- Lesson Header -->
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number">Lesson 1.1</span>
+                        <span class="lesson-tag">⏱ 20분</span>
+                        <span class="lesson-tag">🏕️ Module 1 시작</span>
+                    </div>
+                    <h1 class="lesson-title">Introduction</h1>
+                    <p class="lesson-desc">
+                        코스 오리엔테이션을 합니다. Gemini CLI가 무엇인지, Basecamp Coffee 시나리오가 무엇인지 알아봅니다.
+                        이 레슨 이후 모든 학습은 <em>실제 업무 상황</em>에서 Gemini CLI를 사용하는 방식으로 진행됩니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-1-1</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- What You'll Learn -->
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>이 레슨에서 배우는 것</h2>
+                    <ul class="learn-list">
+                        <li>Gemini CLI가 ChatGPT·웹 AI와 무엇이 다른지 이해한다</li>
+                        <li>Basecamp Coffee 시나리오와 나의 역할(신임 매니저)을 파악한다</li>
+                        <li>STOP / USER / ACTION 패턴을 익혀 레슨 흐름을 따라간다</li>
+                        <li>공식 문서 <code>geminicli.com/docs</code>가 어디 있는지 알고 찾아볼 수 있다</li>
+                        <li>Gemini CLI를 실행하고 첫 번째 명령어를 입력한다</li>
+                    </ul>
+                </div>
+
+                <!-- Scenario -->
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>Basecamp Coffee 시나리오</h2>
+                    <p class="content-p">
+                        이 코스 전체는 <strong style="color:var(--text-primary);">Basecamp Coffee</strong> 라는 가상의 커피 체인 이야기로
+                        전개됩니다.
+                        당신은 방금 이 회사의 신임 매니저로 입사했습니다.
+                    </p>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <div class="concept-icon">🏕️</div>
+                            <div class="concept-title">Basecamp Coffee</div>
+                            <div class="concept-desc">태평양 북서부 45개 지점을 보유한 지역 커피 체인. 공동체, 진정성, 지역 아티스트를 중심 가치로 삼습니다.
+                            </div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">📉</div>
+                            <div class="concept-title">실패한 로열티 프로그램</div>
+                            <div class="concept-desc">$40K를 투자한 Basecamp Rewards가 기대에 미치지 못합니다. 가입자는 있지만 실제 참여율이 너무
+                                낮습니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">⏰</div>
+                            <div class="concept-title">3개월의 시간</div>
+                            <div class="concept-desc">경영진이 기한을 설정했습니다. 3개월 내에 프로그램을 살리지 못하면 폐기됩니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">💡</div>
+                            <div class="concept-title">당신의 무기: Gemini CLI</div>
+                            <div class="concept-desc">단독으로 싸우지 않아도 됩니다. Gemini CLI로 데이터를 분석하고, 솔루션을 설계하고, 앱까지 만들 수 있습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How the Course Works -->
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>레슨이 진행되는 방식</h2>
+                    <p class="content-p">모든 레슨은 <strong style="color:var(--text-primary);">터미널 안에서</strong> Gemini CLI와
+                        대화하며 진행됩니다. 세 가지 마커를 기억하세요:</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">STOP</div>
+                            <div class="step-title">멈추는 지점</div>
+                            <div class="step-desc">Gemini가 여기서 기다립니다. 지시에 따라 직접 해보거나, 생각해보거나, 답해야 합니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">USER</div>
+                            <div class="step-title">당신이 할 일</div>
+                            <div class="step-desc">이 표시 뒤에 나오는 것이 당신이 터미널에 입력하거나 수행해야 할 내용입니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">ACTION</div>
+                            <div class="step-title">Gemini가 할 일</div>
+                            <div class="step-desc">Gemini가 내부적으로 수행하는 작업입니다. 파일을 읽거나, 분석하거나, 만드는 등의 행동입니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Start -->
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>지금 시작하려면</h2>
+                    <div class="code-block">
+                        <span class="cb-comment"># 1. Gemini CLI 설치 (이미 설치되어 있으면 건너뛰기)</span><br />
+                        <span class="cb-prompt">$</span> <span class="cb-cmd">npm install</span> <span class="cb-arg">-g
+                            @google/gemini-cli</span><br /><br />
+                        <span class="cb-comment"># 2. 코스 폴더로 이동</span><br />
+                        <span class="cb-prompt">$</span> <span class="cb-cmd">cd</span> <span
+                            class="cb-arg">complete-course</span><br /><br />
+                        <span class="cb-comment"># 3. Gemini CLI 시작</span><br />
+                        <span class="cb-prompt">$</span> <span class="cb-cmd">gemini</span><br /><br />
+                        <span class="cb-comment"># 4. 레슨 시작</span><br />
+                        <span class="cb-prompt">gemini&gt;</span> <span class="cb-arg">/start-1-1</span>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <span><strong style="color:var(--text-primary);">공식 문서:</strong> <a
+                                href="https://geminicli.com/docs/get-started" target="_blank"
+                                style="color:var(--accent-light);">geminicli.com/docs/get-started</a>에서 설치 가이드를
+                            확인하세요.</span>
+                    </div>
+                </div>
+
+            </article><!-- /.lesson-main -->
+
+            <!-- Prev / Next -->
+            <nav class="lesson-nav">
+                <a class="nav-card" href="../index.html">
+                    <div class="nav-card-dir">← 홈으로</div>
+                    <div class="nav-card-title">코스 소개</div>
+                </a>
+                <a class="nav-card next" href="1-2-file-exploration.html">
+                    <div class="nav-card-dir">다음 레슨 →</div>
+                    <div class="nav-card-title">1.2 File Exploration</div>
+                </a>
+            </nav>
+
+        </main>
+    </div>
+
+    <script src="../nav.js"></script>
+</body>
+
+</html>

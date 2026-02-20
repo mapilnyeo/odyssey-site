@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.8 Power Features | Odyssey AI — GC4E</title>
+    <meta name="description" content="Module 1 총정리, 전체 툴킷 표, 그리고 MCP·Checkpointing·Sandboxing·Remote Agents 미리보기." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main">
+            <article class="lesson-main">
+
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a><span class="sep">›</span>
+                    <a href="../index.html#module-1">Module 1</a><span class="sep">›</span>
+                    <span class="current">1.8 Power Features</span>
+                </nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number">Lesson 1.8</span>
+                        <span class="lesson-tag">⏱ 25분</span>
+                        <span class="lesson-tag">🏆 Module 1 완료</span>
+                    </div>
+                    <h1 class="lesson-title">Power Features — Module 1 Wrap-up</h1>
+                    <p class="lesson-desc">
+                        Module 1을 마무리합니다. 지금까지 배운 모든 스킬을 정리하고,
+                        앞으로 더 배울 수 있는 강력한 고급 기능들을 미리 봅니다.
+                        그리고 Module 2: Vibe Coding을 소개합니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-1-8</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>당신이 마스터한 것들</h2>
+                    <table class="cmd-table">
+                        <thead>
+                            <tr>
+                                <th>스킬</th>
+                                <th>하는 일</th>
+                                <th>언제 쓰나요</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>파일 탐색</td>
+                                <td>낯선 환경 빠르게 파악</td>
+                                <td>뭔가를 물려받았을 때</td>
+                            </tr>
+                            <tr>
+                                <td>@파일 → 추출</td>
+                                <td>단일 문서에서 정보 뽑기</td>
+                                <td>한 문서를 깊이 분석할 때</td>
+                            </tr>
+                            <tr>
+                                <td>@폴더 → 종합</td>
+                                <td>여러 파일에서 패턴 발견</td>
+                                <td>비슷한 파일이 많을 때</td>
+                            </tr>
+                            <tr>
+                                <td>템플릿 적용</td>
+                                <td>일관된 형식의 출력 제어</td>
+                                <td>표준화된 문서가 필요할 때</td>
+                            </tr>
+                            <tr>
+                                <td>이미지 분석</td>
+                                <td>시각 자료에서 인사이트 추출</td>
+                                <td>스크린샷, 차트, 사진 있을 때</td>
+                            </tr>
+                            <tr>
+                                <td>웹 리서치</td>
+                                <td>현재 정보를 즉시 가져오기</td>
+                                <td>최신 정보나 경쟁사 분석</td>
+                            </tr>
+                            <tr>
+                                <td>서브에이전트 🧪</td>
+                                <td>병렬 처리로 시간 절약</td>
+                                <td>비슷한 것이 여러 개일 때</td>
+                            </tr>
+                            <tr>
+                                <td>커스텀 에이전트</td>
+                                <td>다양한 관점 동시에 획득</td>
+                                <td>여러 이해관계자의 시각 필요</td>
+                            </tr>
+                            <tr>
+                                <td>GEMINI.md</td>
+                                <td>프로젝트 컨텍스트 영구 저장</td>
+                                <td>세션이 바뀌어도 기억 유지</td>
+                            </tr>
+                            <tr>
+                                <td>승인 모드</td>
+                                <td>안전성과 속도 균형</td>
+                                <td>리스크 수준에 맞게 조절</td>
+                            </tr>
+                            <tr>
+                                <td>/rewind ・ /resume</td>
+                                <td>실수 취소, 세션 복귀</td>
+                                <td>뭔가 잘못됐을 때</td>
+                            </tr>
+                            <tr>
+                                <td>Chain-of-Thought</td>
+                                <td>더 깊은 분석 요청</td>
+                                <td>복잡한 판단이 필요할 때</td>
+                            </tr>
+                            <tr>
+                                <td>Policy Engine</td>
+                                <td>AI 행동 규칙 세밀 제어</td>
+                                <td>보안·자동화 설정 필요 시</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>다음에 배울 고급 기능</h2>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <div class="concept-icon">🔌</div>
+                            <div class="concept-title">MCP 연동</div>
+                            <div class="concept-desc">Slack, Notion, GitHub, DB 등 외부 서비스를 Gemini CLI로 직접 읽고 씁니다.<br /><a
+                                    href="https://geminicli.com/docs/cli/tutorials/mcp-setup" target="_blank"
+                                    style="color:var(--accent-light);font-size:11px;">geminicli.com/docs → MCP Setup</a>
+                            </div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">💾</div>
+                            <div class="concept-title">Checkpointing</div>
+                            <div class="concept-desc">Gemini CLI가 자동으로 세션 스냅샷을 저장합니다. 문제 발생 시 이전 지점으로 복원 가능.<br /><a
+                                    href="https://geminicli.com/docs/cli/checkpointing" target="_blank"
+                                    style="color:var(--accent-light);font-size:11px;">geminicli.com/docs →
+                                    Checkpointing</a></div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">📦</div>
+                            <div class="concept-title">Sandboxing</div>
+                            <div class="concept-desc">격리된 환경에서 Gemini를 실행합니다. 경계 밖의 파일은 절대 건드리지 않습니다.<br /><a
+                                    href="https://geminicli.com/docs/cli/sandbox" target="_blank"
+                                    style="color:var(--accent-light);font-size:11px;">geminicli.com/docs → Sandbox</a>
+                            </div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">🌐</div>
+                            <div class="concept-title">Remote Subagents 🧪</div>
+                            <div class="concept-desc">웹에서 실행 중인 전문 AI 에이전트에 연결합니다. Agent2Agent 프로토콜 기반.<br /><a
+                                    href="https://geminicli.com/docs/core/remote-agents" target="_blank"
+                                    style="color:var(--accent-light);font-size:11px;">geminicli.com/docs → Remote
+                                    Agents</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>Module 2 미리보기</h2>
+                    <div class="callout callout-info">
+                        <span class="callout-icon">🚀</span>
+                        <div>
+                            <strong style="color:var(--text-primary);">Module 2: Vibe Coding</strong><br />
+                            <span>파일 작업은 끝났습니다. 이제 <em>직접 만들 차례</em>입니다.</span><br />
+                            <span>Coffee Personality Quiz를 Next.js로 만들고 Vercel로 인터넷에 배포합니다.</span><br />
+                            <span style="font-size:12px;margin-top:8px;display:block;">코딩 경험 불필요 · 직접 챌린지해보세요</span>
+                        </div>
+                    </div>
+                    <div class="code-block" style="margin-top:12px;">
+                        <span class="cb-comment"># Module 2 시작</span><br />
+                        <span class="cb-prompt">gemini&gt;</span> <span class="cb-arg">/start-2-1</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <nav class="lesson-nav">
+                <a class="nav-card" href="1-7-gemini-md.html">
+                    <div class="nav-card-dir">← 이전</div>
+                    <div class="nav-card-title">1.7 GEMINI.md</div>
+                </a>
+                <a class="nav-card next" href="2-1-setup.html">
+                    <div class="nav-card-dir">Module 2 시작 →</div>
+                    <div class="nav-card-title">2.1 Setup</div>
+                </a>
+            </nav>
+        </main>
+    </div>
+    <script src="../nav.js"></script>
+</body>
+
+</html>

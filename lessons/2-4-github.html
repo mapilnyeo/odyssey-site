@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4 GitHub | Odyssey AI — GC4E</title>
+    <meta name="description" content="GitHub CLI로 코드를 클라우드에 저장. Git 기초 개념과 협업을 위한 기반 구축." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main">
+            <article class="lesson-main">
+
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a><span class="sep">›</span>
+                    <a href="../index.html#module-2">Module 2</a><span class="sep">›</span>
+                    <span class="current">2.4 GitHub</span>
+                </nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number m2">Lesson 2.4</span>
+                        <span class="lesson-tag">⏱ 25분</span>
+                        <span class="lesson-tag">🐙 코드 저장</span>
+                    </div>
+                    <h1 class="lesson-title">GitHub — 코드를 클라우드에 저장</h1>
+                    <p class="lesson-desc">
+                        내 컴퓨터에만 있는 코드는 언제든 사라질 수 있습니다. GitHub에 올리면 클라우드에 백업되고,
+                        나중에 팀원과 협업하거나 Vercel로 배포할 수도 있습니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-2-4</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>3가지 핵심 개념</h2>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <div class="concept-icon">📸</div>
+                            <div class="concept-title">Commit</div>
+                            <div class="concept-desc">코드의 스냅샷을 찍는 것. "지금 이 버전을 저장!"이라고 선언하는 행위입니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">☁️</div>
+                            <div class="concept-title">Push</div>
+                            <div class="concept-desc">로컬 commit을 GitHub 서버로 전송. 이것이 실제 클라우드 백업이 되는 순간입니다.</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-icon">📁</div>
+                            <div class="concept-title">Repository</div>
+                            <div class="concept-desc">프로젝트 코드가 저장되는 GitHub의 폴더. 변경 이력이 모두 기록됩니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>GitHub CLI로 한 번에 설정</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-title">GitHub CLI 설치 및 로그인</div>
+                            <div class="step-desc">
+                                <div class="code-block" style="font-size:12px;margin:6px 0;">
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">winget install</span> <span
+                                        class="cb-arg">GitHub.cli</span> <span class="cb-comment"># Windows</span><br />
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">gh auth login</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-title">Repository 생성 및 코드 업로드</div>
+                            <div class="step-desc">
+                                <div class="code-block" style="font-size:12px;margin:6px 0;">
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">git init</span><br />
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">git add</span> <span
+                                        class="cb-arg">.</span><br />
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">git commit</span> <span
+                                        class="cb-arg">-m "Initial quiz app"</span><br />
+                                    <span class="cb-prompt">$</span> <span class="cb-cmd">gh repo create</span> <span
+                                        class="cb-arg">coffee-quiz --public --source=. --push</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-title">GitHub에서 코드 확인</div>
+                            <div class="step-desc">브라우저에서 <code>github.com/[내 계정]/coffee-quiz</code>에 접속하면 코드가 업로드된 것을 볼
+                                수 있습니다.</div>
+                        </div>
+                    </div>
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <span>Gemini가 이 모든 명령어를 대신 실행해줍니다. 직접 외울 필요 없습니다.</span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>왜 GitHub가 필요한가요?</h2>
+                    <table class="cmd-table">
+                        <thead>
+                            <tr>
+                                <th>이유</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>☁️ 클라우드 백업</td>
+                                <td>컴퓨터가 고장나도 코드는 안전</td>
+                            </tr>
+                            <tr>
+                                <td>📜 버전 관리</td>
+                                <td>언제든 이전 버전으로 되돌아갈 수 있음</td>
+                            </tr>
+                            <tr>
+                                <td>🚀 Vercel 연동</td>
+                                <td>다음 레슨에서 GitHub→Vercel 자동 배포 설정</td>
+                            </tr>
+                            <tr>
+                                <td>🤝 팀 협업</td>
+                                <td>나중에 팀원과 코드를 함께 작업 가능</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </article>
+
+            <nav class="lesson-nav">
+                <a class="nav-card" href="2-3-build-iterate.html">
+                    <div class="nav-card-dir">← 이전</div>
+                    <div class="nav-card-title">2.3 Build & Iterate</div>
+                </a>
+                <a class="nav-card next" href="2-5-go-live.html">
+                    <div class="nav-card-dir">다음 →</div>
+                    <div class="nav-card-title">2.5 Go Live 🚀</div>
+                </a>
+            </nav>
+        </main>
+    </div>
+    <script src="../nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.7 GEMINI.md | Odyssey AI — GC4E</title>
+    <meta name="description" content="GEMINI.md로 프로젝트 메모리를 영구 저장하는 법. 글로벌·프로젝트·폴더 계층구조와 /memory 명령어 완전 가이드." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main">
+            <article class="lesson-main">
+
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a><span class="sep">›</span>
+                    <a href="../index.html#module-1">Module 1</a><span class="sep">›</span>
+                    <span class="current">1.7 GEMINI.md</span>
+                </nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number">Lesson 1.7</span>
+                        <span class="lesson-tag">⏱ 30분</span>
+                        <span class="lesson-tag">📝 영구 메모리</span>
+                    </div>
+                    <h1 class="lesson-title">GEMINI.md — 프로젝트 영구 메모리</h1>
+                    <p class="lesson-desc">
+                        새 세션을 시작할 때마다 모든 컨텍스트를 다시 설명해야 하는 문제를 해결합니다.
+                        <strong style="color:var(--text-primary);">GEMINI.md</strong>를 한 번 설정하면,
+                        Gemini CLI는 매 세션마다 자동으로 읽고 프로젝트를 기억합니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-1-7</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>이 레슨에서 배우는 것</h2>
+                    <ul class="learn-list">
+                        <li>GEMINI.md가 해결하는 "컨텍스트 재설명 문제"를 이해한다</li>
+                        <li>글로벌 → 프로젝트 → 서브폴더 3단계 계층 구조를 파악한다</li>
+                        <li>Basecamp Coffee 프로젝트의 GEMINI.md를 직접 작성한다</li>
+                        <li>/memory show, /memory add, /memory refresh 명령어를 사용한다</li>
+                        <li>Chain-of-Thought 지침을 GEMINI.md에 내장하는 법을 익힌다</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>GEMINI.md 계층 구조</h2>
+                    <div class="code-block">
+                        <span class="cb-comment"># 더 구체적인 파일이 더 일반적인 파일을 덮어씁니다</span><br /><br />
+                        ~/.gemini/GEMINI.md<br />
+                        <span class="cb-comment">&nbsp;&nbsp;# 🌍 글로벌 — 나의 작업 스타일, 선호 형식, 모든 프로젝트에 공통</span><br />
+                        <span class="cb-comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;예: "항상 한국어로 답해줘", "불렛포인트
+                            선호"</span><br /><br />
+                        ~/projects/basecamp-coffee/GEMINI.md<br />
+                        <span class="cb-comment">&nbsp;&nbsp;# 📂 프로젝트 — 이 프로젝트의 컨텍스트</span><br />
+                        <span class="cb-comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;예: 회사 개요, 문제, 해결책,
+                            이해관계자</span><br /><br />
+                        ~/projects/basecamp-coffee/analysis/GEMINI.md<br />
+                        <span class="cb-comment">&nbsp;&nbsp;# 📁 서브폴더 — 분석 작업에만 적용되는 특수 규칙</span><br />
+                        <span class="cb-comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;예: "데이터 분석 시 항상 표 형식 사용"</span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>좋은 GEMINI.md 예시</h2>
+                    <div class="code-block">
+                        <span class="cb-comment"># complete-course/GEMINI.md</span><br /><br />
+                        # Basecamp Coffee 프로젝트 컨텍스트<br /><br />
+                        ## 회사 개요<br />
+                        Basecamp Coffee: 태평양 북서부 45개 지점, 2015년 설립.<br />
+                        핵심 가치: 지역 원두, 커뮤니티 공간, 아티스트 지원.<br /><br />
+                        ## 현재 문제<br />
+                        - Basecamp Rewards 로열티 프로그램이 기대 미달<br />
+                        - $40K 투자했지만 참여율 저조<br />
+                        - 3개월 내 결과 없으면 폐기<br /><br />
+                        ## 해결 방향<br />
+                        Coffee Personality Quiz로 프로그램에 개성 부여<br /><br />
+                        ## 이해관계자<br />
+                        - Dana (중간 관리자), 경영진, 매장 매니저들<br /><br />
+                        ## AI 작업 지침<br />
+                        - 분석 시 단계별로 생각한 후 결론을 제시할 것<br />
+                        - 숫자와 데이터가 있으면 항상 인용할 것<br />
+                        - 실행 가능한 다음 단계를 항상 제안할 것
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>/memory 명령어</h2>
+                    <table class="cmd-table">
+                        <thead>
+                            <tr>
+                                <th>명령어</th>
+                                <th>용도</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>/memory show</td>
+                                <td>현재 로드된 모든 GEMINI.md 컨텍스트 확인</td>
+                            </tr>
+                            <tr>
+                                <td>/memory add "내용"</td>
+                                <td>새로운 내용을 프로젝트 GEMINI.md에 추가</td>
+                            </tr>
+                            <tr>
+                                <td>/memory refresh</td>
+                                <td>GEMINI.md를 직접 수정한 후 다시 로드</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <span>GEMINI.md에 <strong style="color:var(--text-primary);">Chain-of-Thought 지침</strong>을 넣으면
+                            특별히 요청하지 않아도 Gemini가 항상 깊이 생각하고 답합니다.</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <nav class="lesson-nav">
+                <a class="nav-card" href="1-6-custom-subagents.html">
+                    <div class="nav-card-dir">← 이전</div>
+                    <div class="nav-card-title">1.6 Custom Sub-agents</div>
+                </a>
+                <a class="nav-card next" href="1-8-power-features.html">
+                    <div class="nav-card-dir">다음 →</div>
+                    <div class="nav-card-title">1.8 Power Features</div>
+                </a>
+            </nav>
+        </main>
+    </div>
+    <script src="../nav.js"></script>
+</body>
+
+</html>

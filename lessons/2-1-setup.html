@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1 Setup | Odyssey AI — GC4E</title>
+    <meta name="description" content="Module 2 시작. PM 마인드셋과 Plan→Build→Iterate→Save→Deploy 루프 소개." />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="lessons.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <header class="topbar" id="topbar">
+        <a id="topbarLogoLink" href="../index.html"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+            <div class="logo-icon"
+                style="width:24px;height:24px;font-size:12px;border-radius:6px;background:var(--gradient-hero);display:flex;align-items:center;justify-content:center;">
+                ✦</div>
+            <span style="font-size:13px;font-weight:700;color:var(--text-primary);">Odyssey AI</span>
+        </a>
+        <button id="menuToggle" aria-label="메뉴"
+            style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main">
+            <article class="lesson-main">
+
+                <nav class="breadcrumb">
+                    <a href="../index.html">홈</a><span class="sep">›</span>
+                    <a href="../index.html#module-2">Module 2 · Vibe Coding</a><span class="sep">›</span>
+                    <span class="current">2.1 Setup</span>
+                </nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-meta">
+                        <span class="lesson-number m2">Lesson 2.1</span>
+                        <span class="lesson-tag">⏱ 20분</span>
+                        <span class="lesson-tag">🧱 Module 2 시작</span>
+                    </div>
+                    <h1 class="lesson-title">Setup — Vibe Coding 준비</h1>
+                    <p class="lesson-desc">
+                        Module 1에서는 파일과 함께 일했습니다. Module 2에서는 직접 만듭니다.
+                        PM↔엔지니어 마인드셋 전환과 실제 웹앱 개발의 핵심 루프를 소개합니다.
+                    </p>
+                    <div class="start-cmd-box">
+                        <span class="start-cmd-label">터미널에서 시작:</span>
+                        <div class="start-cmd">
+                            <span class="prompt">gemini&gt;</span>
+                            <span class="arg">/start-2-1</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>두 가지 역할 사이를 오간다</h2>
+                    <div class="concept-grid">
+                        <div class="concept-card" style="border-left:3px solid var(--accent);">
+                            <div class="concept-icon">🎯</div>
+                            <div class="concept-title">PM (Product Manager) 모드</div>
+                            <div class="concept-desc"><strong style="color:var(--text-primary);">무엇을 만들지</strong> 결정합니다.
+                                요구사항 정의, 우선순위 설정, 디자인 방향 결정. 이것이 당신의 역할.</div>
+                        </div>
+                        <div class="concept-card" style="border-left:3px solid var(--accent2);">
+                            <div class="concept-icon">⚙️</div>
+                            <div class="concept-title">Engineer 모드</div>
+                            <div class="concept-desc"><strong style="color:var(--text-primary);">어떻게 만들지</strong> 실행합니다.
+                                코드 작성, 파일 생성, 서버 실행. 이것은 Gemini의 역할.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>핵심 개발 루프</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">1 · Plan</div>
+                            <div class="step-title">요구사항 명확히 정의</div>
+                            <div class="step-desc">무엇을 만들지, 어떻게 보여야 하는지, 어떻게 동작해야 하는지. REQUIREMENTS.md 문서로 기록.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2 · Build</div>
+                            <div class="step-title">Gemini가 코드 작성</div>
+                            <div class="step-desc">요구사항을 주면 Gemini가 Next.js 앱을 처음부터 만들어줍니다. 코드를 이해할 필요 없습니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3 · Iterate</div>
+                            <div class="step-title">보고 → 피드백 → 수정</div>
+                            <div class="step-desc">브라우저에서 결과물을 보고, 스크린샷을 붙여넣으며, 원하는 변경사항을 말하면 됩니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4 · Save</div>
+                            <div class="step-title">GitHub에 코드 저장</div>
+                            <div class="step-desc">만든 코드를 GitHub에 올려 클라우드 백업과 버전 관리를 설정합니다.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5 · Deploy</div>
+                            <div class="step-title">Vercel로 실제 배포</div>
+                            <div class="step-desc">Vercel CLI 한 줄로 인터넷에 게시. 실제 URL을 친구에게 보낼 수 있습니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-h2"><span class="h-dot"></span>무엇을 만드나요?</h2>
+                    <div class="callout callout-info">
+                        <span class="callout-icon">☕</span>
+                        <div>
+                            <strong style="color:var(--text-primary);">Coffee Personality Quiz</strong><br />
+                            5~7개의 퀴즈 문항에 답하면 당신의 커피 성격 유형을 알려주는 웹앱.<br />
+                            결과는 에스프레소, 라떼, 콜드브루 등 커피 유형과 매칭됩니다.<br />
+                            이것이 Basecamp Coffee 로열티 프로그램의 새 생명이 됩니다.
+                        </div>
+                    </div>
+                    <div class="code-block" style="margin-top:16px;">
+                        <span class="cb-comment"># quiz-project 폴더 만들기</span><br />
+                        <span class="cb-prompt">gemini&gt;</span> <span class="cb-string">"quiz-project 폴더를 만들어줘"</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <nav class="lesson-nav">
+                <a class="nav-card" href="1-8-power-features.html">
+                    <div class="nav-card-dir">← 이전</div>
+                    <div class="nav-card-title">1.8 Power Features</div>
+                </a>
+                <a class="nav-card next" href="2-2-plan.html">
+                    <div class="nav-card-dir">다음 →</div>
+                    <div class="nav-card-title">2.2 Plan</div>
+                </a>
+            </nav>
+        </main>
+    </div>
+    <script src="../nav.js"></script>
+</body>
+
+</html>

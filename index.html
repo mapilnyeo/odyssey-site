@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odyssey AI | Gemini CLI for Everyone — The Art of AI Leverage</title>
+  <meta name="description"
+    content="Gemini CLI for Everyone (GC4E): The Art of AI Leverage. 비전공자를 위한 Gemini CLI 완전 정복 코스. 실제 시나리오로 배우는 AI 비즈니스 교육." />
+  <meta property="og:title" content="Odyssey AI — Gemini CLI for Everyone" />
+  <meta property="og:description" content="AI 레버리지의 기술. 13개 레슨으로 Gemini CLI 완전 정복." />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Mobile Topbar -->
+  <header class="topbar" id="topbar">
+    <div class="logo-mark">
+      <div class="logo-icon">✦</div>
+      <span class="logo-text" style="font-size:14px;">Odyssey AI</span>
+    </div>
+    <button id="menuToggle" aria-label="메뉴 열기"
+      style="background:none;border:none;color:var(--text-primary);font-size:20px;cursor:pointer;">☰</button>
+  </header>
+
+  <div class="layout">
+
+    <!-- ─────────── SIDEBAR ─────────── -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-logo">
+        <div class="logo-mark">
+          <div class="logo-icon">✦</div>
+          <span class="logo-text">Odyssey AI</span>
+        </div>
+        <div class="logo-sub">GC4E · The Art of AI Leverage</div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <!-- Overview -->
+        <div class="nav-section">
+          <div class="nav-section-label">시작하기</div>
+          <a class="nav-link active" href="#hero">🏠 코스 소개</a>
+          <a class="nav-link" href="#quickstart">⚡ 빠른 시작</a>
+          <a class="nav-link" href="#features">🛠 핵심 기능</a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Module 1 · Foundations</div>
+          <a class="nav-link" href="lessons/1-1-introduction.html">
+            1.1 Introduction
+          </a>
+          <a class="nav-link" href="lessons/1-2-file-exploration.html">
+            1.2 File Exploration
+          </a>
+          <a class="nav-link" href="lessons/1-3-working-with-files.html">
+            1.3 Working with Files
+          </a>
+          <a class="nav-link" href="lessons/1-4-commands-navigation.html">
+            1.4 Commands & Navigation
+          </a>
+          <a class="nav-link" href="lessons/1-5-agents.html">
+            1.5 Agents <span class="nav-badge new">🧪</span>
+          </a>
+          <a class="nav-link" href="lessons/1-6-custom-subagents.html">
+            1.6 Custom Sub-agents
+          </a>
+          <a class="nav-link" href="lessons/1-7-gemini-md.html">
+            1.7 GEMINI.md
+          </a>
+          <a class="nav-link" href="lessons/1-8-power-features.html">
+            1.8 Power Features
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-label">Module 2 · Vibe Coding</div>
+          <a class="nav-link" href="lessons/2-1-setup.html">
+            2.1 Setup
+          </a>
+          <a class="nav-link" href="lessons/2-2-plan.html">
+            2.2 Plan
+          </a>
+          <a class="nav-link" href="lessons/2-3-build-iterate.html">
+            2.3 Build & Iterate
+          </a>
+          <a class="nav-link" href="lessons/2-4-github.html">
+            2.4 GitHub
+          </a>
+          <a class="nav-link" href="lessons/2-5-go-live.html">
+            2.5 Go Live 🚀
+          </a>
+        </div>
+
+        <!-- Reference -->
+        <div class="nav-section">
+          <div class="nav-section-label">참고 자료</div>
+          <a class="nav-link" href="https://geminicli.com/docs" target="_blank" rel="noopener">
+            📖 공식 문서 ↗
+          </a>
+          <a class="nav-link" href="https://geminicli.com/docs/reference/policy-engine" target="_blank" rel="noopener">
+            🛡 Policy Engine ↗
+          </a>
+          <a class="nav-link" href="https://geminicli.com/docs/core/subagents" target="_blank" rel="noopener">
+            🤖 Subagents API ↗
+          </a>
+        </div>
+
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://geminicli.com/docs" target="_blank" rel="noopener">
+          <span>geminicli.com/docs</span>
+          <span style="font-size:10px; opacity:0.5;">↗</span>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ─────────── MAIN ─────────── -->
+    <main class="main">
+
+      <!-- ====== HERO ====== -->
+      <section class="hero" id="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+
+        <div class="hero-eyebrow fade-up">
+          <span>✦</span> 공식 코스 가이드 · 2025 Edition
+        </div>
+
+        <h1 class="hero-title fade-up fade-up-delay-1">
+          Gemini CLI for<br />
+          <span class="gradient">Everyone</span>
+        </h1>
+
+        <p class="hero-subtitle fade-up fade-up-delay-2">
+          <strong style="color:var(--text-primary);">AI를 진짜 무기로 만드는 법.</strong><br />
+          코딩 몰라도 괜찮아요 — Gemini AI와 터미널에서 대화하며 실제 업무 문제를 해결합니다.
+          가상의 커피 체인 Basecamp Coffee를 살리는 시나리오로 배우는 실전 AI 활용법.
+        </p>
+
+        <div class="hero-cta fade-up fade-up-delay-3">
+          <a href="#lesson-1-1" class="btn-primary" id="startBtn">
+            ▶ 레슨 시작하기
+          </a>
+          <a href="https://geminicli.com/docs" target="_blank" class="btn-secondary">
+            📖 공식 문서
+          </a>
+        </div>
+
+        <div class="hero-stats fade-up fade-up-delay-3">
+          <div class="stat">
+            <span class="stat-value">13</span>
+            <span class="stat-label">레슨</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2</span>
+            <span class="stat-label">모듈</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">~3h</span>
+            <span class="stat-label">총 학습 시간</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">0</span>
+            <span class="stat-label">코딩 경험 필요</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== QUICK START ====== -->
+      <section class="section" id="quickstart">
+        <div class="section-header">
+          <div class="section-eyebrow">바로 시작하기</div>
+          <h2 class="section-title">딱 3단계면 됩니다</h2>
+          <p class="section-desc">Gemini CLI만 설치하면 바로 시작할 수 있어요. 어렵지 않아요!</p>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:600px;">
+          <div class="quickstart-banner" style="padding:20px 24px;">
+            <div>
+              <p style="font-size:12px; color:var(--text-faint); margin-bottom:4px;">Step 1 · 설치</p>
+              <div class="terminal-cmd">
+                <span class="prompt">$</span>
+                <span class="cmd-text">npm install</span>
+                <span class="cmd-arg">-g @google/gemini-cli</span>
+              </div>
+            </div>
+          </div>
+          <div class="quickstart-banner" style="padding:20px 24px;">
+            <div>
+              <p style="font-size:12px; color:var(--text-faint); margin-bottom:4px;">Step 2 · 코스 폴더로 이동 후 실행</p>
+              <div class="terminal-cmd">
+                <span class="prompt">$</span>
+                <span class="cmd-text">gemini</span>
+              </div>
+            </div>
+          </div>
+          <div class="quickstart-banner" style="padding:20px 24px;">
+            <div>
+              <p style="font-size:12px; color:var(--text-faint); margin-bottom:4px;">Step 3 · 첫 레슨 시작</p>
+              <div class="terminal-cmd">
+                <span class="prompt">gemini&gt;</span>
+                <span class="cmd-arg">/start-1-1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== MODULE 1 ====== -->
+      <section class="section" id="module-1">
+        <div class="section-header">
+          <div class="section-eyebrow">모듈 1</div>
+          <h2 class="section-title">파일과 함께 일하기 — AI 기초 다지기</h2>
+          <p class="section-desc">
+            파일을 탐색하고, 분석하고, 패턴을 찾아냅니다. 어지럽게 인계받은 Basecamp Coffee 파일들을
+            정리하면서 Gemini CLI의 핵심 기능을 자연스럽게 익힙니다.
+          </p>
+        </div>
+
+        <!-- Module strip -->
+        <div class="module-strip">
+          <div class="module-icon m1">📂</div>
+          <div class="module-info">
+            <h3>모듈 1 · 기초 다지기</h3>
+            <p>8개 레슨 &nbsp;·&nbsp; 약 3시간 &nbsp;·&nbsp; 코딩 경험 없어도 OK</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+
+          <a class="lesson-card" href="lessons/1-1-introduction.html">
+            <div class="card-number">레슨 1.1</div>
+            <h3 class="card-title">코스 소개 — 지금 바로 시작</h3>
+            <p class="card-desc">
+              Gemini CLI가 뭔지, 이 코스가 어떻게 진행되는지 알아봅니다. Basecamp Coffee 매니저로 첫 출근!
+              보는 것이 아닌, 직접 하면서 배우는 방식에 익숙해집니다.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-1
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-2-file-exploration.html">
+            <div class="card-number">LESSON 1.2</div>
+            <h3 class="card-title">File Exploration & Visualization</h3>
+            <p class="card-desc">
+              상속받은 혼란스러운 파일들 탐색. Cursor 에디터 설정으로 파일을 눈으로 보면서 작업하는
+              환경 구성.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-2
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-3-working-with-files.html">
+            <div class="card-number">레슨 1.3</div>
+            <h3 class="card-title">@ 기호로 파일 다루기</h3>
+            <p class="card-desc">
+              <strong style="color:var(--text-primary);">@파일명</strong>만 입력하면 Gemini가 읽어냅니다.
+              파일 추출, 폴더 분석, 템플릿 적용, 이미지 분석, 웹 리서치 — 5가지 실전 시나리오.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-3
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-4-commands-navigation.html">
+            <div class="card-number">LESSON 1.4</div>
+            <h3 class="card-title">Commands & Navigation</h3>
+            <p class="card-desc">
+              슬래시 명령어, 커스텀 TOML 명령, Esc 중단 · Esc×2 리와인드, 승인 모드, Chain-of-Thought,
+              <code style="font-size:11px;">/memory</code> 명령어, Policy Engine 소개.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-4
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-5-agents.html">
+            <div class="card-number">레슨 1.5</div>
+            <h3 class="card-title">
+              AI 팀 운영 — 병렬로 일 시키기
+              <span class="badge-exp">🧪 실험적</span>
+            </h3>
+            <p class="card-desc">
+              서브에이전트로 여러 파일을 병렬 처리. 경쟁사 분석을 동시에 처리하는 방법.
+              언제 병렬 처리가 유리한지 파악.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-5
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-6-custom-subagents.html">
+            <div class="card-number">레슨 1.6</div>
+            <h3 class="card-title">나만의 AI 팀원 만들기</h3>
+            <p class="card-desc">
+              바리스타, 임원, 디자이너 — 역할이 다른 AI 팀원을 직접 만들어봅니다.
+              같은 문서도 관점에 따라 전혀 다른 피드백을 받을 수 있어요.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-6
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-7-gemini-md.html">
+            <div class="card-number">레슨 1.7</div>
+            <h3 class="card-title">GEMINI.md — Gemini의 장기 기억</h3>
+            <p class="card-desc">
+              매번 처음부터 설명하기 지치셨나요? GEMINI.md에 프로젝트 정보를 저장하면
+              Gemini가 켤 때마다 자동으로 다 알고 시작합니다.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-7
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/1-8-power-features.html">
+            <div class="card-number">레슨 1.8</div>
+            <h3 class="card-title">고급 기능 맛보기 &amp; 모듈 1 총정리</h3>
+            <p class="card-desc">
+              지금까지 배운 것을 한눈에 정리합니다. MCP 연동, 체크포인팅, 샌드박싱 같은
+              고급 기능을 가볍게 소개하고 모듈 2로 넘어갑니다.
+            </p>
+            <div class="card-command">
+              <span style="color:var(--text-faint);">/</span>start-1-8
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ====== MODULE 2 ====== -->
+      <section class="section" id="module-2">
+        <div class="section-header">
+          <div class="section-eyebrow">모듈 2</div>
+          <h2 class="section-title">직접 만들기 — 코드 없이 앱 출시</h2>
+          <p class="section-desc">
+            기획 → 만들기 → 다듬기 → 저장 → 배포. 코드 한 줄 없이 실제로 작동하는
+            웹앱을 인터넷에 올리는 경험을 합니다.
+          </p>
+        </div>
+
+        <div class="module-strip">
+          <div class="module-icon m2">🚀</div>
+          <div class="module-info">
+            <h3>모듈 2 · 바이브 코딩</h3>
+            <p>5개 레슨 &nbsp;·&nbsp; 약 2시간 &nbsp;·&nbsp; Next.js · GitHub · Vercel 사용</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+
+          <a class="lesson-card" href="lessons/2-1-setup.html">
+            <div class="card-number"
+              style="color:var(--accent2); background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);">레슨 2.1
+            </div>
+            <h3 class="card-title">준비 — 무엇을 만들지 정하기</h3>
+            <p class="card-desc">
+              여러분이 기획자, Gemini가 개발자가 됩니다. 기획→만들기→다듬기→저장→배포 흐름을 이해하고
+              프로젝트 폴더를 만들어 시작을 준비합니다.
+            </p>
+            <div class="card-command" style="color:var(--accent-light);">
+              <span style="color:var(--text-faint);">/</span>start-2-1
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/2-2-plan.html">
+            <div class="card-number"
+              style="color:var(--accent2); background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);">레슨 2.2
+            </div>
+            <h3 class="card-title">기획 — 만들 것을 구체적으로 정하기</h3>
+            <p class="card-desc">
+              커피 성격 퀴즈의 질문, 성격 유형, 커피 페어링, 디자인 방향을 결정합니다.
+              명확하게 요구사항을 적어야 Gemini가 정확하게 만들어줍니다.
+            </p>
+            <div class="card-command" style="color:var(--accent-light);">
+              <span style="color:var(--text-faint);">/</span>start-2-2
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/2-3-build-iterate.html">
+            <div class="card-number"
+              style="color:var(--accent2); background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);">LESSON 2.3
+            </div>
+            <h3 class="card-title">Build & Iterate</h3>
+            <p class="card-desc">
+              Next.js 스캐폴드, 퀴즈 앱 빌드, localhost:3000 실행. 스크린샷 붙여넣기
+              → 반복 수정. 내 quiz 완성.
+            </p>
+            <div class="card-command" style="color:var(--accent-light);">
+              <span style="color:var(--text-faint);">/</span>start-2-3
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/2-4-github.html">
+            <div class="card-number"
+              style="color:var(--accent2); background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);">레슨 2.4
+            </div>
+            <h3 class="card-title">GitHub — 코드를 클라우드에 저장</h3>
+            <p class="card-desc">
+              노트북이 고장나도 코드가 사라지지 않도록 GitHub에 백업합니다.
+              코드의 Google Drive라고 생각하면 됩니다. 배포를 위한 필수 단계예요.
+            </p>
+            <div class="card-command" style="color:var(--accent-light);">
+              <span style="color:var(--text-faint);">/</span>start-2-4
+            </div>
+          </a>
+
+          <a class="lesson-card" href="lessons/2-5-go-live.html">
+            <div class="card-number"
+              style="color:var(--accent2); background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);">레슨 2.5
+            </div>
+            <h3 class="card-title">인터넷에 올리기 — 진짜 출시 🚀</h3>
+            <p class="card-desc">
+              명령어 한 줄로 실제 URL이 생깁니다. 스마트폰으로 접속하고 친구에게 링크를 보내보세요.
+              코딩 없이 첫 웹앱을 세상에 내놓는 순간입니다.
+            </p>
+            <div class="card-command" style="color:var(--accent-light);">
+              <span style="color:var(--text-faint);">/</span>start-2-5
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ====== KEY FEATURES ====== -->
+      <section class="section" id="features">
+        <div class="section-header">
+          <div class="section-eyebrow">핵심 기능</div>
+          <h2 class="section-title">이 코스에서 배우는 Gemini CLI 기능</h2>
+          <p class="section-desc">공식 문서 기반으로 검증된 Gemini CLI의 진짜 기능들</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">📝</div>
+            <div class="feature-text">
+              <h4>GEMINI.md</h4>
+              <p>프로젝트 메모리. 글로벌→프로젝트→폴더 계층 구조로 컨텍스트 영구 저장.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>나만의 단축 명령어</h4>
+              <p>자주 사용하는 작업을 <code>.toml</code> 파일로 저장해 <code>/내명령어</code> 형태로 불러씁니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🤖</div>
+            <div class="feature-text">
+              <h4>나만의 AI 팀원 🧪</h4>
+              <p>역할과 말투가 다른 AI 팀원을 마크다운 파일 하나로 직접 만들 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-text">
+              <h4>안전 모드 전환</h4>
+              <p>Shift+Tab으로 매번 확인받기 → 자동 실행 → 읽기 전용 탐색 모드를 오갑니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🧠</div>
+            <div class="feature-text">
+              <h4>깊이 생각하게 만들기</h4>
+              <p>"단계별로 생각해줘"라고 말하거나 <code>/plan</code> 모드를 쓰면 훨씬 꼼꼼한 답변을 받습니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🧲</div>
+            <div class="feature-text">
+              <h4>/memory</h4>
+              <p><code>/memory show</code> · <code>add</code> · <code>refresh</code>로 프로젝트 컨텍스트 관리.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">↩️</div>
+            <div class="feature-text">
+              <h4>/rewind & /resume</h4>
+              <p>Esc×2 또는 <code>/rewind</code>로 대화 되돌리기. <code>/resume</code>으로 이전 세션 복귀.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>AI 행동 규칙 설정</h4>
+              <p>"이건 항상 허용", "이건 항상 물어봐"처럼 Gemini의 행동을 세밀하게 제어할 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💾</div>
+            <div class="feature-text">
+              <h4>자동 저장 &amp; 복원</h4>
+              <p>작업 중간 상태를 자동으로 저장합니다. 실수가 생겨도 언제든 이전 시점으로 되돌아갑니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔌</div>
+            <div class="feature-text">
+              <h4>MCP 연동</h4>
+              <p>Slack, Notion, GitHub 등 외부 서비스를 Gemini CLI로 직접 제어.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📦</div>
+            <div class="feature-text">
+              <h4>격리 실행 환경</h4>
+              <p>Gemini를 완전히 분리된 공간에서 실행합니다. 위험한 실험도 안전하게 해볼 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌐</div>
+            <div class="feature-text">
+              <h4>원격 AI 에이전트 연결 🧪</h4>
+              <p>인터넷에서 실행 중인 전문 AI 에이전트에 연결해 협업합니다. AI 팀워크의 미래.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== CTA ====== -->
+      <section class="section">
+        <div class="quickstart-banner">
+          <div>
+            <h3>지금 시작할 준비가 되셨나요?</h3>
+            <p>13개 레슨 · 코딩 경험 불필요 · 터미널 하나면 충분</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="#lesson-1-1" class="btn-primary">▶ 레슨 1.1 시작</a>
+            <a href="https://geminicli.com/docs/get-started" target="_blank" class="btn-secondary">설치 가이드</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== FOOTER ====== -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div>
+            <div class="footer-brand">✦ Odyssey AI · Gemini CLI for Everyone</div>
+            <div class="footer-attr">
+              <a href="https://x.com/carlvellotti" target="_blank" rel="noopener">
+                Carl Vellotti
+              </a>의 원작 "Claude Code for Everyone"을 기반으로,
+              Gemini CLI 버전으로 각색·최적화 — Sujeong Lim
+            </div>
+          </div>
+          <div class="footer-links">
+            <a href="https://geminicli.com/docs" target="_blank" rel="noopener">공식 문서</a>
+            <a href="https://geminicli.com/docs/reference/policy-engine" target="_blank" rel="noopener">행동 규칙 설정</a>
+            <a href="https://geminicli.com/docs/core/subagents" target="_blank" rel="noopener">AI 팀원 만들기</a>
+            <a href="https://geminicli.com/docs/cli/gemini-md" target="_blank" rel="noopener">장기 메모리</a>
+          </div>
+        </div>
+      </footer>
+
+    </main><!-- /.main -->
+
+  </div><!-- /.layout -->
+
+  <script>
+    // ── Scroll progress bar ──
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }, { passive: true });
+
+    // ── Sidebar active link on scroll ──
+    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link[href^="#"]');
+    const sections = [];
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sections.push({ id, el, link });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const found = sections.find(s => s.id === entry.target.id);
+          if (found) found.link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(({ el }) => observer.observe(el));
+
+    // ── Mobile sidebar toggle ──
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    if (menuToggle && sidebar) {
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+        menuToggle.textContent = sidebar.classList.contains('open') ? '✕' : '☰';
+      });
+
+      // Close sidebar when a nav link is clicked on mobile
+      sidebar.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            sidebar.classList.remove('open');
+            menuToggle.textContent = '☰';
+          }
+        });
+      });
+
+      // Close sidebar on outside click (mobile)
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 &&
+          !sidebar.contains(e.target) &&
+          e.target !== menuToggle) {
+          sidebar.classList.remove('open');
+          menuToggle.textContent = '☰';
+        }
+      });
+    }
+
+    // ── Smooth scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.getElementById(this.getAttribute('href').slice(1));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── Lesson card click → start command hint ──
+    document.querySelectorAll('.lesson-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a') && !e.target.classList.contains('lesson-card')) return;
+        const cmd = card.querySelector('.card-command');
+        if (!cmd) return;
+        const original = cmd.textContent.trim();
+        cmd.style.color = 'var(--accent-light)';
+        cmd.style.borderColor = 'rgba(167,139,250,0.4)';
+        setTimeout(() => {
+          cmd.style.color = '';
+          cmd.style.borderColor = '';
+        }, 600);
+      });
+    });
+  </script>
+  <script src="nav.js"></script>
+
+</body>
+
+</html>
