@@ -187,7 +187,27 @@
 
         <!-- Preparation Cards -->
         <div
-          style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 48px; max-width: 900px;">
+          style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 48px; max-width: 1000px;">
+
+          <!-- Antigravity -->
+          <div class="feature-item"
+            style="flex-direction: column; gap: 12px; padding: 24px; border-color: var(--accent-light);">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="feature-icon" style="background: var(--accent-glow); border-color: rgba(124,58,237,0.3);">🛸
+              </div>
+              <h4 style="margin:0;">Antigravity</h4>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              이 코스를 함께 진행할 AI 코딩 어시스턴트입니다. 대화하며 코드를 작성하고 배포까지 도와줍니다.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 8px;">
+              <a href="https://antigravity.google/download" target="_blank" class="btn-primary"
+                style="font-size: 12px; padding: 10px 12px; justify-content: center; background: var(--gradient-hero);">
+                Antigravity 다운로드 ↗
+              </a>
+            </div>
+          </div>
+
           <!-- Git & GitHub -->
           <div class="feature-item" style="flex-direction: column; gap: 12px; padding: 24px;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -195,7 +215,7 @@
               <h4 style="margin:0;">Git & GitHub</h4>
             </div>
             <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
-              코드 관리와 저장을 위한 필수 도구입니다.
+              코드 관리와 저장을 위한 필수 도구입니다. GitHub 계정이 반드시 필요합니다.
             </p>
             <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 8px;">
               <a href="https://git-scm.com/install/windows" target="_blank" class="btn-secondary"
@@ -210,7 +230,7 @@
           </div>
 
           <!-- Node.js -->
-          <div class="feature-item" style="flex-direction: column; gap: 12px; padding: 24px; grid-column: span 1.5;">
+          <div class="feature-item" style="flex-direction: column; gap: 12px; padding: 24px;">
             <div style="display: flex; align-items: center; gap: 10px;">
               <div class="feature-icon">📦</div>
               <h4 style="margin:0;">Node.js 설치</h4>
@@ -219,13 +239,12 @@
               Gemini CLI를 실행하기 위한 자바스크립트 환경입니다.
             </p>
             <div
-              style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; font-size: 12px; width: 100%;">
+              style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; font-size: 12px; width: 100%; margin-top: auto;">
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px;">
                 <li>• <a href="https://nodejs.org/ko/download" target="_blank"
-                    style="color:var(--accent-light); font-weight:600; text-decoration: underline;">nodejs.org</a> 접속 후
+                    style="color:var(--accent-light); font-weight:600; text-decoration: underline;">nodejs.org</a>
                   <strong>LTS 버전</strong> 다운로드</li>
-                <li>• 설치 파일 실행 후 기본값(Next → Finish)으로 진행</li>
-                <li>• 터미널에서 <code>node -v</code> 입력 후 버전이 나오면 성공</li>
+                <li>• 설치 후 터미널에서 <code>node -v</code> 확인</li>
               </ul>
             </div>
           </div>
