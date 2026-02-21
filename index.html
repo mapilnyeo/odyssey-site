@@ -180,9 +180,61 @@
       <!-- ====== QUICK START ====== -->
       <section class="section" id="quickstart">
         <div class="section-header">
+          <div class="section-eyebrow">시작하기 전에</div>
+          <h2 class="section-title">준비사항</h2>
+          <p class="section-desc">터미널 환경에서 Gemini AI를 다루기 위해 필요한 기초 도구들입니다.</p>
+        </div>
+
+        <!-- Preparation Cards -->
+        <div
+          style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 48px; max-width: 900px;">
+          <!-- Git & GitHub -->
+          <div class="feature-item" style="flex-direction: column; gap: 12px; padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="feature-icon">🌿</div>
+              <h4 style="margin:0;">Git & GitHub</h4>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              코드 관리와 저장을 위한 필수 도구입니다.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 8px;">
+              <a href="https://git-scm.com/install/windows" target="_blank" class="btn-secondary"
+                style="font-size: 12px; padding: 8px 12px; justify-content: center;">
+                Git 설치 (Windows) ↗
+              </a>
+              <a href="https://github.com/signup" target="_blank" class="btn-secondary"
+                style="font-size: 12px; padding: 8px 12px; justify-content: center;">
+                GitHub 가입 ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Node.js -->
+          <div class="feature-item" style="flex-direction: column; gap: 12px; padding: 24px; grid-column: span 1.5;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="feature-icon">📦</div>
+              <h4 style="margin:0;">Node.js 설치</h4>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              Gemini CLI를 실행하기 위한 자바스크립트 환경입니다.
+            </p>
+            <div
+              style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; font-size: 12px; width: 100%;">
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px;">
+                <li>• <a href="https://nodejs.org/ko/download" target="_blank"
+                    style="color:var(--accent-light); font-weight:600; text-decoration: underline;">nodejs.org</a> 접속 후
+                  <strong>LTS 버전</strong> 다운로드</li>
+                <li>• 설치 파일 실행 후 기본값(Next → Finish)으로 진행</li>
+                <li>• 터미널에서 <code>node -v</code> 입력 후 버전이 나오면 성공</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header">
           <div class="section-eyebrow">바로 시작하기</div>
           <h2 class="section-title">딱 3단계면 됩니다</h2>
-          <p class="section-desc">Gemini CLI만 설치하면 바로 시작할 수 있어요. 어렵지 않아요!</p>
+          <p class="section-desc">도구 준비가 끝났다면, Gemini CLI를 설치하고 첫 레슨을 시작하세요!</p>
         </div>
 
         <div style="display:flex; flex-direction:column; gap:12px; max-width:600px;">
